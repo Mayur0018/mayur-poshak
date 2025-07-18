@@ -13,7 +13,7 @@ import Image from "next/image";
 const Header = () => {
   const [menuOpen, setMenuopen] = useState(false);
   return (
-    <>
+    <>  
       {/* laptop size */}
       <div className="hidden lg:block">
         <div className="bg-black text-white py-3 font-medium flex justify-center items-center">
@@ -64,7 +64,7 @@ const Header = () => {
           <hr className="border-gray-300" />
           <p className="font-medium">BLOGS</p>
           <hr className="border-gray-300  relative top-65" />
-          <div className="flex items-center justify-evenly gap-10 absolute bottom-0 py-5  cursor-pointer">
+          <div className="flex items-center justify-evenly gap-10 absolute bottom-0   cursor-pointer">
             <CiUser />
             <p>Log in</p>
             <FaFacebookF />

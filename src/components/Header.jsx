@@ -51,7 +51,7 @@ const Header = () => {
       </div>
       {/* moblie resposive */}
       {menuOpen && (
-        <div className="lg:hidden flex flex-col gap-4 w-82 md:w-2xl h-screen bg-white absolute z-50 top-0 border border-gray-400 py-5 px-5">
+        <div className="lg:hidden flex flex-col gap-4 w-82 md:w-2xl  bg-white absolute z-50 top-0 border border-gray-400 py-5 px-5">
           <RxCross1 onClick={() => setMenuopen(false)} />
           <hr className="border-gray-300" />
           <p className="font-medium">HOME</p>

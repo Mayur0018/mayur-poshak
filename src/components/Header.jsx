@@ -51,7 +51,7 @@ const Header = () => {
       </div>
       {/* moblie resposive */}
       {menuOpen && (
-        <div className="lg:hidden flex flex-col gap-4 w-82 md:w-2xl  bg-white absolute z-50 top-0 border border-gray-400 py-5 px-5">
+        <div className="lg:hidden flex flex-col gap-4 min-h-screen w-82 md:w-2xl  bg-white absolute z-50 top-0 border border-gray-400 py-5 px-5">
           <RxCross1 onClick={() => setMenuopen(false)} />
           <hr className="border-gray-300" />
           <p className="font-medium">HOME</p>
@@ -65,7 +65,7 @@ const Header = () => {
           <p className="font-medium">BLOGS</p>
 
           {/* bottom nav  */}
-          <div className="py-10 absolute bottom-0">
+          <div className="py-10  relative  top-40">
             <hr className="border-gray-300" />
             <div className="flex items-center justify-evenly gap-12   cursor-pointer py-5">
               <CiUser />

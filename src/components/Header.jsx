@@ -4,32 +4,74 @@ import { CiMenuFries } from "react-icons/ci";
 import { IoSearchOutline } from "react-icons/io5";
 import { TbShoppingBag } from "react-icons/tb";
 import { RxCross1 } from "react-icons/rx";
+import { CiUser } from "react-icons/ci";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+
 import { useState } from "react";
 import Image from "next/image";
 const Header = () => {
-    const [menu ,setMenu] = useState(false);
+  const [menuOpen, setMenuopen] = useState(false);
   return (
     <>
-      <div className="flex justify-evenly items-center font-montserrat">
-        <CiMenuFries className=" text-2xl" />
-        <Image src="/mayurposhak.png" width={120} height={0}></Image>
+      {/* laptop size */}
+      <div className="hidden lg:block">
+        <div className="bg-black text-white py-3 font-medium flex justify-center items-center">
+          JO DIKHTA HAI VO BIKTA HAI
+        </div>
+        <div className="flex items-center gap-130 px-10 border py-4">
+          <div className="flex  cursor-pointer">
+            <CiMenuFries className="text-2xl" />
+            <IoSearchOutline className="text-2xl ml-5" />
+          </div>
+
+          <Image
+            src="/mayurposhak.png"
+            width={200}
+            height={0}
+            alt="logimg"
+          ></Image>
+          <div className="flex items-center  cursor-pointer">
+            <CiUser className=" text-2xl" />
+            <TbShoppingBag className=" text-2xl ml-5" />
+          </div>
+        </div>
+      </div>
+      {/* mobile and tablate view  */}
+      <div className="flex items-center justify-around py-5 lg:hidden">
+        <CiMenuFries className=" text-2xl" onClick={() => setMenuopen(true)} />
+        <Image
+          src="/mayurposhak.png"
+          width={160}
+          height={0}
+          alt="logimg"
+        ></Image>
         <IoSearchOutline className=" text-2xl" />
         <TbShoppingBag className=" text-2xl" />
       </div>
       {/* moblie resposive */}
-      <div className="sm:hidden flex flex-col gap-5 w-80 h-screen bg-white absolute top-0 border border-gray-400 py-5 px-5">
-        <RxCross1 />
-        <hr />
-        <p>HOME</p>
-        <hr />
-        <p>SHOP BY CATEGORIES</p>
-        <hr />
-        <p>ABOUT US</p>
-        <hr />
-        <p>CONTACT</p>
-        <hr />
-        <p>BLOGS</p>
-      </div>
+      {menuOpen && (
+        <div className="lg:hidden flex flex-col gap-4 w-82 md:w-2xl h-screen bg-white absolute top-0 border border-gray-400 py-5 px-5">
+          <RxCross1 onClick={() => setMenuopen(false)} />
+          <hr className="border-gray-300" />
+          <p className="font-medium">HOME</p>
+          <hr className="border-gray-300" />
+          <p className="font-medium">SHOP BY CATEGORIES</p>
+          <hr className="border-gray-300" />
+          <p className="font-medium">ABOUT US</p>
+          <hr className="border-gray-300" />
+          <p className="font-medium">CONTACT</p>
+          <hr className="border-gray-300" />
+          <p className="font-medium">BLOGS</p>
+          <hr className="border-gray-300  relative top-65" />
+          <div className="flex items-center justify-evenly gap-10 absolute bottom-0 py-5  cursor-pointer">
+            <CiUser />
+            <p>Log in</p>
+            <FaFacebookF />
+            <FaInstagram />
+          </div>
+        </div>
+      )}
     </>
   );
 };

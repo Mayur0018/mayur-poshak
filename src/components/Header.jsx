@@ -66,8 +66,8 @@ const Header = () => {
 
           {/* bottom nav  */}
           <div className="py-10 absolute bottom-0">
-            <hr className="border-gray-300 " />
-            <div className="flex items-center justify-evenly gap-10   cursor-pointer py-5">
+            <hr className="border-gray-300" />
+            <div className="flex items-center justify-evenly gap-12   cursor-pointer py-5">
               <CiUser />
               <p>Log in</p>
               <FaFacebookF />

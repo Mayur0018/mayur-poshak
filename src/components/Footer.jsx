@@ -11,7 +11,7 @@ const Footer = () => {
      
       <div className="bottom-0 left-0 w-full bg-white border-t z-50">
          <hr className="w-full border-t border-gray-300" />
-          <p className="text-[10px] md:text-xs text-gray-500 py-10 md:py-38 md:px-5 font-medium ">
+          <p className="text-[10px] text-center md:text-xs text-gray-500 py-10 md:py-38 md:px-5 font-medium ">
         © 2025 Mayur Poshak ALL rights reserved
       </p>
         <div className=" md:hidden flex justify-around items-center py-3">

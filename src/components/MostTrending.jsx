@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { PiHandshakeLight } from "react-icons/pi";
 import { LiaPeopleCarrySolid } from "react-icons/lia";
 import { SiCraftsman } from "react-icons/si";
 
-const Mosttrending = [
+export const Mosttrending = [
   {
     id: 1,
     image: "/MostTrending/trendingimg1.png",
@@ -90,22 +91,27 @@ const summerimg = [
 const MostTrending = () => {
   return (
     <>
-      <h1 className="text-2xl font-medium mt-8 px-9">Most Trending</h1>
+      <h1 className="text-2xl font-medium mt-8 px-9 overflow-hidden">
+        Most Trending
+      </h1>
       <div className="py-8 grid grid-cols-2 md:grid-cols-4 gap-3 px-8 md:gap-0">
         {Mosttrending.map((items) => (
-          <div key={items.id} className="md:px-4 md:py-4">
-            <Image
-              src={items.image}
-              width={800}
-              height={0}
-              alt="trendingimgs"
-            />
-            <p className="font-medium text-[12px] py-2">{items.text}</p>
-            <p className="text-[12px] font-medium py-2">Rs.{items.price}</p>
-            <button className="text-[12px] w-full px-2 py-2 md:py-4 md:px-4 font-medium bg-black text-white">
-              ADD TO CART
-            </button>
-          </div>
+          <Link href={`/product/${items.id}`} key={items.id}>
+            <div className="md:px-4 md:py-4">
+              <Image
+                src={items.image}
+                width={800}
+                height={0}
+                alt="trendingimgs"
+                className="aspect-[253/337] object-cover object-top shadow-md hover:scale-[1.05] transition-all duration-300"
+              />
+              <p className="font-medium text-[12px] py-2">{items.text}</p>
+              <p className="text-[12px] font-medium py-2">Rs.{items.price}</p>
+              <button className="text-[12px] w-full px-2 py-2 md:py-4 md:px-4 font-medium bg-black text-white">
+                ADD TO CART
+              </button>
+            </div>
+          </Link>
         ))}
       </div>
 
@@ -144,7 +150,7 @@ const MostTrending = () => {
               width={400}
               height={400}
               alt={`summer-img-${index}`}
-              className="rounded-lg w-full"
+              className="rounded-lg w-full aspect-[253/337] object-cover object-top shadow-md hover:scale-[1.05] transition-all duration-300"
             />
           ))}
         </div>

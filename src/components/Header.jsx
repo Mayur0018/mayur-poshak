@@ -15,11 +15,11 @@ const Header = () => {
   return (
     <>
       {/* laptop size */}
-      <div className="hidden lg:block">
-        <div className="bg-black text-white py-3 font-medium flex justify-center items-center">
+      <div className="hidden lg:block mb-15 ">
+        {/* <div className="bg-black text-white py-3 font-medium flex justify-center items-center">
           JO DIKHTA HAI VO BIKTA HAI
-        </div>
-        <div className="flex items-center gap-130 px-10 border py-4">
+        </div> */}
+        <div className=" fixed top-0 z-50 bg-white  flex items-center gap-130 px-10 border ">
           <div className="flex  cursor-pointer">
             <CiMenuFries className="text-2xl" />
             <IoSearchOutline className="text-2xl ml-5" />

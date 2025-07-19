@@ -38,7 +38,7 @@ const Categories = () => {
       <h1 className="flex justify-center items-center py-5 md:py-8  text-2xl md:text-5xl">
         SHOP BY CATEGORIES
       </h1>
-      <div className=" grid grid-cols-3 px-8 md:px-30 gap-2 md:grid-cols-6 py-10 md:py-16">
+      <div className=" grid grid-cols-3 px-8 md:px-30 gap-2 md:grid-cols-6 py-10 md:py-16" >
         {category.map((items) => (
           <div key={items.id} className=" px-1 py-1">
             <Image
@@ -46,7 +46,7 @@ const Categories = () => {
               width={80}
               height={80}
               alt=""
-              className="object-cover rounded-full md:w-24 md:h-24 h-24 w-24"
+              className="  object-cover rounded-full md:w-24 md:h-24 h-24 w-24 aspect-[253/337]  object-top shadow-md hover:scale-[1.05] transition-all duration-300"
             ></Image>
             <p className="text-[10px] mt-4  font-medium">{items.text}</p>
           </div>

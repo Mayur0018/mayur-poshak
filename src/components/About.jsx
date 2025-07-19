@@ -33,7 +33,7 @@ const About = () => {
         <h1 className="text-1xl md:text-2xl font-semibold text-center">
           About Mayur Poshak
         </h1>
-        <p className="text-center max-w-3xl  mt-6 mx-auto px-4 md:px-6 text-[14px] md:text-[16px] leading-relaxed font-medium">
+        <p className="text-center max-w-3xl  mt-6 mx-auto px-4 md:px-6 text-[14px] md:text-[16px] leading-relaxed font-medium transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
           Step into the world of bumchiq, where fashion gets a funky twist.
           Unleash your inner trendsetter with our one-of-a-kind, offbeat prints.
           We're not just a clothing brand; we're a statement, and you're the

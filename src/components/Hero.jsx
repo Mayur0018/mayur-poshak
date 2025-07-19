@@ -22,28 +22,28 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const logoSliders = [
-    {
-      id: 1,
-      logos: <TbTruckDelivery />,
-      name: "FREE DELIVERY",
-    },
-    {
-      id: 2,
-      logos: <Ri24HoursLine />,
-      name: "ORDERS DISPATCH WITHIN 24 HOURS",
-    },
-    {
-      id: 3,
-      logos: <HiOutlineTruck />,
-      name: "COD AVAILABLE",
-    },
-    {
-      id: 4,
-      logos: <LuCodesandbox />,
-      name: "RETURN/EXCHANGE",
-    },
-  ];
+    const logoSliders = [
+      {
+        id: 1,
+        logos: <TbTruckDelivery />,
+        name: "FREE DELIVERY",
+      },
+      {
+        id: 2,
+        logos: <Ri24HoursLine />,
+        name: "ORDERS DISPATCH WITHIN 24 HOURS",
+      },
+      {
+        id: 3,
+        logos: <HiOutlineTruck />,
+        name: "COD AVAILABLE",
+      },
+      {
+        id: 4,
+        logos: <LuCodesandbox />,
+        name: "RETURN/EXCHANGE",
+      },
+    ];
 
   return (
     // image slider

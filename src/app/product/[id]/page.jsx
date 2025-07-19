@@ -1,6 +1,8 @@
 import { Mosttrending } from "@/components/MostTrending";
 import Image from "next/image";
 
+console.log(Mosttrending);
+
 const page = ({ params }) => {
   const product = Mosttrending.find((item) => item.id === Number(params.id));
   if (!product) return <div>Product Not Found</div>;

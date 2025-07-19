@@ -6,6 +6,7 @@ import { HiOutlineTruck } from "react-icons/hi2";
 import { Ri24HoursLine } from "react-icons/ri";
 import { LuCodesandbox } from "react-icons/lu";
 import Marquee from "react-fast-marquee";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const images = [
@@ -22,32 +23,20 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-    const logoSliders = [
-      {
-        id: 1,
-        logos: <TbTruckDelivery />,
-        name: "FREE DELIVERY",
-      },
-      {
-        id: 2,
-        logos: <Ri24HoursLine />,
-        name: "ORDERS DISPATCH WITHIN 24 HOURS",
-      },
-      {
-        id: 3,
-        logos: <HiOutlineTruck />,
-        name: "COD AVAILABLE",
-      },
-      {
-        id: 4,
-        logos: <LuCodesandbox />,
-        name: "RETURN/EXCHANGE",
-      },
-    ];
+  const logoSliders = [
+    { id: 1, logos: <TbTruckDelivery />, name: "FREE DELIVERY" },
+    { id: 2, logos: <Ri24HoursLine />, name: "ORDERS DISPATCH WITHIN 24 HOURS" },
+    { id: 3, logos: <HiOutlineTruck />, name: "COD AVAILABLE" },
+    { id: 4, logos: <LuCodesandbox />, name: "RETURN/EXCHANGE" },
+  ];
 
   return (
-    // image slider
-    <div className=" md:relative w-full">
+    <motion.div
+      className="md:relative w-full"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
       <Image
         src={images[index]}
         width={2000}
@@ -67,18 +56,28 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* logos slider */}
+      {/* Logos slider with scroll animation */}
       <Marquee pauseOnHover gradient={false} speed={50}>
-        <div className="flex justify-evenly px-4 py-4">
+        <motion.div
+          className="flex justify-evenly px-4 py-4"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
           {logoSliders.map((items, index) => (
-            <div key={index} className="flex items-center px-5">
+            <motion.div
+              key={index}
+              className="flex items-center px-5"
+              whileHover={{ scale: 1.1 }}
+            >
               <p className="font-medium text-3xl px-5">{items.logos}</p>
               <p>{items.name}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Marquee>
-    </div>
+    </motion.div>
   );
 };
 

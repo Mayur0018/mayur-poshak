@@ -43,10 +43,10 @@ const Categories = () => {
           <div key={items.id} className=" px-1 py-1">
             <Image
               src={items.Image}
-              width={50}
-              height={0}
+              width={80}
+              height={80}
               alt=""
-              className="rounded-full object-cover md:w-20"
+              className="object-cover rounded-full md:w-24 md:h-24 h-24 w-24"
             ></Image>
             <p className="text-[10px] mt-4  font-medium">{items.text}</p>
           </div>

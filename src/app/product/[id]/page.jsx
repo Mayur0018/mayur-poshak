@@ -3,13 +3,10 @@ import Image from "next/image";
 console.log(Mosttrendingproduct);
 
 const page = ({ params }) => {
-  console.log(Mosttrendingproduct);
-
   const product = Mosttrendingproduct.find(
     (item) => item.id === Number(params.id)
   );
   if (!product) return <div>Product Not Found</div>;
-  console.log(product);
 
   return (
     <>

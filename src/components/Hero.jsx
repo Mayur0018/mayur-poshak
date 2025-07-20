@@ -1,19 +1,11 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import { TbTruckDelivery } from "react-icons/tb";
-import { HiOutlineTruck } from "react-icons/hi2";
-import { Ri24HoursLine } from "react-icons/ri";
-import { LuCodesandbox } from "react-icons/lu";
+
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
-
+import { images, mobileimages, logoSliders } from "@/Data/HeroImages";
 const Hero = () => {
-  const images = [
-    "/SliderImage/Slider1.png",
-    "/SliderImage/Slider2.png",
-    "/SliderImage/Slider3.png",
-  ];
   const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
@@ -23,13 +15,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  const logoSliders = [
-    { id: 1, logos: <TbTruckDelivery />, name: "FREE DELIVERY" },
-    { id: 2, logos: <Ri24HoursLine />, name: "ORDERS DISPATCH WITHIN 24 HOURS" },
-    { id: 3, logos: <HiOutlineTruck />, name: "COD AVAILABLE" },
-    { id: 4, logos: <LuCodesandbox />, name: "RETURN/EXCHANGE" },
-  ];
-
   return (
     <motion.div
       className="md:relative w-full"
@@ -37,25 +22,48 @@ const Hero = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
-      <Image
-        src={images[index]}
-        width={2000}
-        height={600}
-        className="w-full object-cover transition-all duration-500"
-        alt="slider"
-      />
+      <div className=" hidden md:block">
+        <Image
+          src={images[index]}
+          width={2000}
+          height={600}
+          className="w-full object-cover transition-all duration-500"
+          alt="slider"
+        />
 
-      <div className="w-full flex justify-center gap-2 mt-1">
-        {images.map((_, idx) => (
-          <div
-            key={idx}
-            className={`h-[2px] w-12 ${
-              idx === index ? "bg-black" : "bg-gray-300"
-            } border-2 border-dashed border-white`}
-          />
-        ))}
+        <div className="w-full flex justify-center gap-2 mt-1">
+          {images.map((_, idx) => (
+            <div
+              key={idx}
+              className={`h-[2px] w-12 ${
+                idx === index ? "bg-black" : "bg-gray-300"
+              } border-2 border-dashed border-white`}
+            />
+          ))}
+        </div>
       </div>
+      {/* Mobile Images */}
+      <div className="block md:hidden">
+        <Image
+          src={mobileimages[index]}
+          width={800}
+          height={400}
+          className="w-full object-cover transition-all duration-500"
+          alt="mobile slider"
+        />
 
+        {/* Dot indicators */}
+        <div className="w-full flex justify-center gap-2 mt-1">
+          {(images.length > 0 ? images : mobileimages).map((_, idx) => (
+            <div
+              key={idx}
+              className={`h-[2px] w-12 ${
+                idx === index ? "bg-black" : "bg-gray-300"
+              } border-2 border-dashed border-white`}
+            />
+          ))}
+        </div>
+      </div>
       {/* Logos slider with scroll animation */}
       <Marquee pauseOnHover gradient={false} speed={50}>
         <motion.div

@@ -2,40 +2,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MdOutlineDesignServices } from "react-icons/md";
-import { PiHandshakeLight } from "react-icons/pi";
-import { LiaPeopleCarrySolid } from "react-icons/lia";
-import { SiCraftsman } from "react-icons/si";
 import { motion } from "framer-motion";
+import { Mosttrendingproduct } from "@/Data/Mosttrendingproduct";
+import { Partnership } from "@/Data/Partnership";
+import { summerimg } from "@/Data/summerimg";
 
-export const Mosttrending = [
-  { id: 1, image: "/MostTrending/trendingimg1.png", text: "Ruby Lips Oversized Tee", price: 1299.0 },
-  { id: 2, image: "/MostTrending/trendingimg2.png", text: "Wild Bear Oversized Tee", price: 1299.0 },
-  { id: 3, image: "/MostTrending/trendingimg3.png", text: "Adore You Oversized Tee", price: 1299.0 },
-  { id: 4, image: "/MostTrending/trendingimg4.png", text: "Fake Make Oversized Tee", price: 1299.0 },
-  { id: 5, image: "/MostTrending/trendingimg1.png", text: "Goat Aura Oversized Tee", price: 1299.0 },
-  { id: 6, image: "/MostTrending/trendingimg6.png", text: "Big Dawgs Oversized Tee", price: 1299.0 },
-  { id: 7, image: "/MostTrending/trendingimg7.png", text: "Luv Known Oversized Tee", price: 1299.0 },
-  { id: 8, image: "/MostTrending/trendingimg8.png", text: "Star Gaze Oversized Tee", price: 1299.0 },
-];
-
-const Partnership = [
-  { id: 1, icon: MdOutlineDesignServices, text: "Design Comfort Fit" },
-  { id: 2, icon: PiHandshakeLight, text: "Quality Partnerships" },
-  { id: 3, icon: LiaPeopleCarrySolid, text: "Customer Satisfaction" },
-  { id: 4, icon: SiCraftsman, text: "Expert Craftsmanship" },
-];
-
-const summerimg = [
-  { image: "/Summer/summer6.jpg" },
-  { image: "/Summer/summer2.jpg" },
-  { image: "/Summer/summer3.jpg" },
-  { image: "/Summer/summer4.jpg" },
-  { image: "/Summer/summer5.jpg" },
-  { image: "/Summer/summer6.jpg" },
-];
-
-const MostTrending = () => {
+export default function MostTrending() {
   return (
     <>
       {/* Heading */}
@@ -51,7 +23,7 @@ const MostTrending = () => {
 
       {/* Trending Products */}
       <div className="py-8 grid grid-cols-2 md:grid-cols-4 gap-3 px-8 md:gap-0">
-        {Mosttrending.map((item, index) => (
+        {Mosttrendingproduct.map((item, index) => (
           <Link href={`/product/${item.id}`} key={item.id}>
             <motion.div
               className="md:px-4 md:py-4 cursor-pointer"
@@ -137,6 +109,4 @@ const MostTrending = () => {
       </motion.div>
     </>
   );
-};
-
-export default MostTrending;
+}

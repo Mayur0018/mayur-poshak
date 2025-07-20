@@ -27,7 +27,7 @@ const Header = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="fixed top-0 z-50 bg-white flex items-center gap-130 px-10 border w-full">
+        <div className="fixed top-0  bg-white flex items-center gap-130 px-10 border w-full">
           <div className="flex cursor-pointer gap-5">
             <CiMenuFries className="text-2xl" />
             <IoSearchOutline className="text-2xl" />
@@ -67,17 +67,22 @@ const Header = () => {
               onClick={() => setMenuopen(false)}
               className="cursor-pointer text-xl"
             />
-            {["HOME", "SHOP BY CATEGORIES", "ABOUT US", "CONTACT", "BLOGS"].map((item, idx) => (
-              <motion.p
-                key={idx}
-                className="font-medium cursor-pointer"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                {item}
-              </motion.p>
-            ))}
+
+            {["HOME", "SHOP BY CATEGORIES", "ABOUT US", "CONTACT", "BLOGS"].map(
+              (item, idx) => (
+                <motion.div
+                  key={idx}
+                  className="font-medium cursor-pointer"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                >
+                  <hr className="border-gray-300 mb-4" />
+
+                  <p>{item}</p>
+                </motion.div>
+              )
+            )}
 
             {/* bottom nav */}
             <div className="py-10 mt-auto">

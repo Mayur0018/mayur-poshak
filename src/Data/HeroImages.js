@@ -9,8 +9,8 @@ export const images = [
 ];
 export const mobileimages = [
   "/SliderImage/mobilesilder1.jpg",
-  "/SliderImage/mobilesilder2.jpg",
-  "/SliderImage/mobilesilder3.jpg",
+  "/SliderImage/mobileslider2.jpg",
+  "/SliderImage/mobileslider3.jpg",
 ];
 export const logoSliders = [
   { id: 1, logos: <TbTruckDelivery />, name: "FREE DELIVERY" },

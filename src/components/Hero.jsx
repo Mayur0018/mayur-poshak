@@ -54,7 +54,7 @@ const Hero = () => {
 
         {/* Dot indicators */}
         <div className="w-full flex justify-center gap-2 mt-1">
-          {(images.length > 0 ? images : mobileimages).map((_, idx) => (
+          {mobileimages.map((_, idx) => (
             <div
               key={idx}
               className={`h-[2px] w-12 ${

@@ -42,7 +42,7 @@ const Header = () => {
 
       {/* mobile and tablet view */}
       <motion.div
-        className="flex items-center justify-around py-5 lg:hidden"
+        className=" sticky top-0 bg-white flex items-center justify-around py-2 shadow-md lg:hidden"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}

@@ -3,11 +3,18 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mosttrendingproduct } from "@/Data/Mosttrendingproduct";
 import { Partnership } from "@/Data/Partnership";
 import { summerimg } from "@/Data/summerimg";
+import { useState, useEffect } from "react";
 
 export default function MostTrending() {
+  const [product, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("api/products")
+      .then((res) => res.json())
+      .then(setProducts);
+  }, []);
   return (
     <>
       {/* Heading */}
@@ -23,8 +30,8 @@ export default function MostTrending() {
 
       {/* Trending Products */}
       <div className="py-8 grid grid-cols-2 md:grid-cols-4 gap-3 px-8 md:gap-0">
-        {Mosttrendingproduct.map((item, index) => (
-          <Link href={`/product/${item.id}`} key={item.id}>
+        {product.map((item, index) => (
+          <Link href={`/product/${item.id}`} key={item.id || index}>
             <motion.div
               className="md:px-4 md:py-4 cursor-pointer"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -39,7 +46,7 @@ export default function MostTrending() {
                 alt="trendingimgs"
                 className="aspect-[253/337] object-cover object-top shadow-md hover:scale-[1.05] transition-all duration-300"
               />
-              <p className="font-medium text-[12px] py-2">{item.text}</p>
+              <p className="font-medium text-[12px] py-2">{item.name}</p>
               <p className="text-[12px] font-medium py-2">Rs.{item.price}</p>
               <button className="text-[12px] w-full px-2 py-2 md:py-4 md:px-4 font-medium bg-black text-white">
                 ADD TO CART

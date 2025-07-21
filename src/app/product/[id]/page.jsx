@@ -1,11 +1,19 @@
-import { Mosttrendingproduct } from "@/Data/Mosttrendingproduct";
+"use client"
+import { use } from "react";
+import { useState,useEffect } from "react";
 import Image from "next/image";
-console.log(Mosttrendingproduct);
-
 const page = ({ params }) => {
-  const product = Mosttrendingproduct.find(
-    (item) => item.id === Number(params.id)
-  );
+  const {id} = use(params);
+  const [product,setProduct] = useState([]);
+
+  useEffect(()=>{
+    async function fetchProduct(){
+      const res = await fetch(`/api/products/${id}`);
+      const data = await res.json();
+      setProduct(data);
+    } 
+    fetchProduct()
+  },[id])
   if (!product) return <div>Product Not Found</div>;
 
   return (
@@ -18,7 +26,7 @@ const page = ({ params }) => {
               <div className="overflow-hidden">
                 <Image
                   src={product.image}
-                  alt="Product"
+                  alt={product.name}
                   width={400}
                   height={500}
                   className="w-full aspect-[253/337] object-cover object-top shadow-md hover:scale-[1.05] transition-all duration-300"
@@ -66,7 +74,7 @@ const page = ({ params }) => {
           {/* Right Side - Details */}
           <div className="py-6 px-8 max-lg:max-w-2xl">
             <h2 className="text-xl font-semibold text-slate-900">
-              {product.text}
+              {product.name}
             </h2>
             <p className="text-sm text-slate-500 mt-2">Well-Versed Commerce</p>
 

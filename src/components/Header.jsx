@@ -26,7 +26,7 @@ const Header = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-      >
+      > 
         <div className="fixed top-0 z-50 shadow-md  bg-white flex items-center gap-130 px-10 border w-full">
           <div className="flex cursor-pointer gap-5">
             <CiMenuFries className="text-2xl" />

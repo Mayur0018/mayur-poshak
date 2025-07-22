@@ -8,7 +8,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Link from "next/link";
 const Header = () => {
   const [menuOpen, setMenuopen] = useState(false);
 
@@ -32,7 +32,15 @@ const Header = () => {
             <CiMenuFries className="text-2xl" />
             <IoSearchOutline className="text-2xl" />
           </div>
-          <Image src="/mayurposhak.png" width={200} height={0} alt="logo" />
+          <Link href="/">
+            <Image
+              src="/mayurposhak.png"
+              width={200}
+              height={0}
+              alt="logo"
+              className="cursor-pointer"
+            />
+          </Link>
           <div className="flex items-center cursor-pointer gap-5">
             <CiUser className="text-2xl" />
             <TbShoppingBag className="text-2xl" />

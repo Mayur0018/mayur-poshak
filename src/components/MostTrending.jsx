@@ -15,6 +15,7 @@ export default function MostTrending() {
       .then((res) => res.json())
       .then(setProducts);
   }, []);
+
   return (
     <>
       {/* Heading */}
@@ -31,14 +32,15 @@ export default function MostTrending() {
       {/* Trending Products */}
       <div className="py-8 grid grid-cols-2 md:grid-cols-4 gap-3 px-8 md:gap-0">
         {product.map((item, index) => (
-          <Link href={`/product/${item._id}`} key={item._id || index}>
-            <motion.div
-              className="md:px-4 md:py-4 cursor-pointer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+          <motion.div
+            key={item._id || index}
+            className="md:px-4 md:py-4 cursor-pointer"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <Link href={`/product/${item._id}`}>
               <Image
                 src={item.image}
                 width={800}
@@ -46,13 +48,14 @@ export default function MostTrending() {
                 alt="trendingimgs"
                 className="aspect-[253/337] object-cover object-top shadow-md hover:scale-[1.05] transition-all duration-300"
               />
-              <p className="font-medium text-[12px] py-2">{item.name}</p>
-              <p className="text-[12px] font-medium py-2">Rs.{item.price}</p>
-              <button className="text-[12px] w-full px-2 py-2 md:py-4 md:px-4 font-medium bg-black text-white">
-                ADD TO CART
-              </button>
-            </motion.div>
-          </Link>
+            </Link>
+
+            <p className="font-medium text-[12px] py-2">{item.name}</p>
+            <p className="text-[12px] font-medium py-2">Rs.{item.price}</p>
+            <button className="text-[12px] w-full px-2 py-2 md:py-4 md:px-4 font-medium bg-black text-white">
+              ADD TO CART
+            </button>
+          </motion.div>
         ))}
       </div>
 

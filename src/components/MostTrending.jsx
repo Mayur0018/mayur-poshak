@@ -6,16 +6,23 @@ import { motion } from "framer-motion";
 import { Partnership } from "@/Data/Partnership";
 import { summerimg } from "@/Data/summerimg";
 import { useState, useEffect } from "react";
-
+import { addToCart } from "@/redux/cartSlice";
+import { useDispatch } from "react-redux";
 export default function MostTrending() {
   const [product, setProducts] = useState([]);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch("api/products")
       .then((res) => res.json())
       .then(setProducts);
   }, []);
 
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+    console.log(item);
+    
+  };
   return (
     <>
       {/* Heading */}
@@ -52,7 +59,10 @@ export default function MostTrending() {
 
             <p className="font-medium text-[12px] py-2">{item.name}</p>
             <p className="text-[12px] font-medium py-2">Rs.{item.price}</p>
-            <button className="text-[12px] w-full px-2 py-2 md:py-4 md:px-4 font-medium bg-black text-white">
+            <button
+              className="text-[12px] w-full px-2 py-2 md:py-4 md:px-4 font-medium bg-black text-white cursor-pointer"
+              onClick={() => handleAddToCart(item)}
+            >
               ADD TO CART
             </button>
           </motion.div>

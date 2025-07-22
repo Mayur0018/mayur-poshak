@@ -9,9 +9,10 @@ import { FaInstagram } from "react-icons/fa6";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [menuOpen, setMenuopen] = useState(false);
-
+  const cartCount = useSelector((state) => state.cart.cartItems.length);
   const sidebarVariants = {
     hidden: { x: "-100%" },
     visible: { x: 0, transition: { duration: 0.5 } },
@@ -26,25 +27,38 @@ const Header = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-      > 
+      >
         <div className="fixed top-0 z-50 shadow-md  bg-white flex items-center gap-130 px-10 border w-full">
           <div className="flex cursor-pointer gap-5">
             <CiMenuFries className="text-2xl" />
             <IoSearchOutline className="text-2xl" />
           </div>
           <Link href="/">
-            <Image src="/mayurposhak.png" width={200} height={0} alt="logo" className="cursor-pointer"/>
+            <Image
+              src="/mayurposhak.png"
+              width={200}
+              height={0}
+              alt="logo"
+              className="cursor-pointer"
+            />
           </Link>
-          <div className="flex items-center cursor-pointer gap-5">
+          <div className="flex items-center cursor-pointer gap-5 relative">
             <CiUser className="text-2xl" />
-            <TbShoppingBag className="text-2xl" />
+            <Link href="/cart">
+              <TbShoppingBag className="text-2xl" />
+              {cartCount > 0 && (
+                <span className="absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full px-1">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
           </div>
         </div>
       </motion.div>
 
       {/* mobile and tablet view */}
       <motion.div
-        className=" sticky top-0 bg-white flex items-center justify-around py-2 shadow-md lg:hidden"
+        className=" sticky top-0 bg-white flex items-center justify-around py-2 shadow-md lg:hidden "
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -52,7 +66,14 @@ const Header = () => {
         <CiMenuFries className="text-2xl" onClick={() => setMenuopen(true)} />
         <Image src="/mayurposhak.png" width={160} height={0} alt="logo" />
         <IoSearchOutline className="text-2xl" />
-        <TbShoppingBag className="text-2xl" />
+        <Link href="/cart" className=" relative">
+          <TbShoppingBag className="text-2xl" />
+          {cartCount > 0 && (
+            <span className="absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full px-1">
+              {cartCount}
+            </span>
+          )}
+        </Link>
       </motion.div>
 
       {/* Animated Sidebar */}

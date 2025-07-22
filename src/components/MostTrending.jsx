@@ -31,7 +31,7 @@ export default function MostTrending() {
       {/* Trending Products */}
       <div className="py-8 grid grid-cols-2 md:grid-cols-4 gap-3 px-8 md:gap-0">
         {product.map((item, index) => (
-          <Link href={`/product/${item.id}`} key={item.id || index}>
+          <Link href={`/product/${item._id}`} key={item._id || index}>
             <motion.div
               className="md:px-4 md:py-4 cursor-pointer"
               initial={{ opacity: 0, scale: 0.8 }}

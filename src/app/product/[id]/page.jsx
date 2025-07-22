@@ -1,21 +1,14 @@
-"use client"
-import { use } from "react";
-import { useState,useEffect } from "react";
 import Image from "next/image";
-const page = ({ params }) => {
-  const {id} = use(params);
-  const [product,setProduct] = useState([]);
+export default async function page({ params }) {
+  const { id } = params;
 
-  useEffect(()=>{
-    async function fetchProduct(){
-      const res = await fetch(`/api/products/${id}`);
-      const data = await res.json();
-      setProduct(data);
-    } 
-    fetchProduct()
-  },[id])
-  if (!product) return <div>Product Not Found</div>;
+  const res = await fetch(`http://localhost:3000/api/products/${id}`);
 
+  if (!res.ok) {
+    return <div>Product Not Found</div>;
+  }
+
+  const product = await res.json();
   return (
     <>
       <div className="p-6">
@@ -171,6 +164,4 @@ const page = ({ params }) => {
       </div>
     </>
   );
-};
-
-export default page;
+}

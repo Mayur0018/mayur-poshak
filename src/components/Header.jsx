@@ -33,13 +33,7 @@ const Header = () => {
             <IoSearchOutline className="text-2xl" />
           </div>
           <Link href="/">
-            <Image
-              src="/mayurposhak.png"
-              width={200}
-              height={0}
-              alt="logo"
-              className="cursor-pointer"
-            />
+            <Image src="/mayurposhak.png" width={200} height={0} alt="logo" className="cursor-pointer"/>
           </Link>
           <div className="flex items-center cursor-pointer gap-5">
             <CiUser className="text-2xl" />

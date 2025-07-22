@@ -101,20 +101,20 @@ const CartPage = () => {
 
               <div className="mt-5 flex justify-center gap-4">
                 <Image
-                  src="/MostTrending/trendingimg1.png"
-                  alt="card1"
+                  src="/Cardsimg/gpay.jpg"
+                  alt="mastercard"
                   width={40}
                   height={20}
                 />
                 <Image
-                  src="/MostTrending/trendingimg1.png"
-                  alt="card2"
+                  src="/Cardsimg/mastercard.png"
+                  alt="visa"
                   width={40}
                   height={20}
                 />
                 <Image
-                  src="/MostTrending/trendingimg1.png"
-                  alt="card3"
+                  src="/Cardsimg/paypa.png"
+                  alt="amex"
                   width={40}
                   height={20}
                 />
